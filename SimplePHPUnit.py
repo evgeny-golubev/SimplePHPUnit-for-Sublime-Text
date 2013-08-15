@@ -17,7 +17,7 @@ class SimplePhpUnitCommand(sublime_plugin.WindowCommand):
             if os.path.isfile("%s" % os.path.join(self.PROJECT_PATH, 'phpunit.xml')) or os.path.isfile("%s" % os.path.join(self.PROJECT_PATH, 'phpunit.xml.dist')):
                 self.params = kwargs.get('params', False)
                 self.args = [self.phpunit_path]
-                if self.params is None:
+                if self.params is True:
                     self.window.show_input_panel('Params:', '', self.on_params, None, None)
                 else:
                     self.on_done()
