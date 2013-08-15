@@ -1,0 +1,13 @@
+[
+    {
+        "caption": "PHPUnit: Run",
+        "command": "simple_php_unit"
+    },
+    {
+        "caption": "PHPUnit: Run with params",
+        "command": "simple_php_unit",
+        "args": {
+            "params": true
+        }
+    }
+]
