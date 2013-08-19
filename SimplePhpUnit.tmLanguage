@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>bundleUUID</key>
+  <string>72174d10-bb12-11e0-962b-112233445566</string>
+  <key>name</key>
+  <string>SimplePhpUnit</string>
+  <key>patterns</key>
+  <array>
+    <dict>
+      <key>comment</key>
+      <string>test pass</string>
+      <key>match</key>
+      <string>^OK [\d+ (test|assertion)?,]+</string>
+      <key>name</key>
+      <string>test.pass</string>
+    </dict>
+    <dict>
+      <key>comment</key>
+      <string>test pass</string>
+      <key>match</key>
+      <string>(Tests|Assertions): \d+?,?.</string>
+      <key>name</key>
+      <string>test.pass</string>
+    </dict>
+
+    <dict>
+      <key>comment</key>
+      <string>test failed</string>
+      <key>match</key>
+      <string>Failures: \d+?,?.</string>
+      <key>name</key>
+      <string>test.fail</string>
+    </dict>
+    <dict>
+      <key>comment</key>
+      <string>test failed</string>
+      <key>match</key>
+      <string>.+\d+ failure?s.+</string>
+      <key>name</key>
+      <string>test.fail</string>
+    </dict>
+    <dict>
+      <key>comment</key>
+      <string>test failed</string>
+      <key>match</key>
+      <string>FAILURES!</string>
+      <key>name</key>
+      <string>test.fail</string>
+    </dict>
+
+    <dict>
+      <key>comment</key>
+      <string>test error</string>
+      <key>match</key>
+      <string>Errors: \d+?,?.</string>
+      <key>name</key>
+      <string>test.error</string>
+    </dict>
+    <dict>
+      <key>comment</key>
+      <string>test failed</string>
+      <key>match</key>
+      <string>.+\d+ error?s.+</string>
+      <key>name</key>
+      <string>test.error</string>
+    </dict>
+
+    <dict>
+      <key>comment</key>
+      <string>test skipped</string>
+      <key>match</key>
+      <string>Skipped: \d+?,?.</string>
+      <key>name</key>
+      <string>test.skipped</string>
+    </dict>
+    <dict>
+      <key>comment</key>
+      <string>test skipped</string>
+      <key>match</key>
+      <string>.+\d+ skipped.+</string>
+      <key>name</key>
+      <string>test.skipped</string>
+    </dict>
+
+    <dict>
+      <key>comment</key>
+      <string>test incomplete</string>
+      <key>match</key>
+      <string>Incomplete: \d+?,?.</string>
+      <key>name</key>
+      <string>test.incomplete</string>
+    </dict>
+    <dict>
+      <key>comment</key>
+      <string>test incomplete</string>
+      <key>match</key>
+      <string>.+\d+ incomplete.+</string>
+      <key>name</key>
+      <string>test.incomplete</string>
+    </dict>
+
+    <dict>
+      <key>comment</key>
+      <string>dots painting</string>
+      <key>begin</key>
+      <string>phpunit.xml</string>
+      <key>patterns</key>
+      <array>
+        <dict>
+          <key>match</key>
+          <string>\.+</string>
+          <key>name</key>
+          <string>test.pass</string>
+        </dict>
+        <dict>
+          <key>match</key>
+          <string>S+</string>
+          <key>name</key>
+          <string>test.skipped</string>
+        </dict>
+        <dict>
+          <key>match</key>
+          <string>E+</string>
+          <key>name</key>
+          <string>test.error</string>
+        </dict>
+        <dict>
+          <key>match</key>
+          <string>F+</string>
+          <key>name</key>
+          <string>test.error</string>
+        </dict>
+      </array>
+      <key>end</key>
+      <string>Time</string>
+    </dict>
+
+    <dict>
+      <key>comment</key>
+      <string>color highlight</string>
+      <key>match</key>
+      <string>\d+\) [A-za-z\d]+::[A-za-z\d]+</string>
+      <key>name</key>
+      <string>test.highlight</string>
+    </dict>
+    <dict>
+      <key>comment</key>
+      <string>color path</string>
+      <key>match</key>
+      <string>/[A-za-z\d/\.]+:\d+</string>
+      <key>name</key>
+      <string>test.highlight</string>
+    </dict>
+    <dict>
+      <key>comment</key>
+      <string>color info</string>
+      <key>match</key>
+      <string>^\[.+\]</string>
+      <key>name</key>
+      <string>test.info</string>
+    </dict>
+    <dict>
+      <key>comment</key>
+      <string>color info</string>
+      <key>match</key>
+      <string>^PHPUnit.+</string>
+      <key>name</key>
+      <string>test.info</string>
+    </dict>
+  </array>
+  <key>scopeName</key>
+  <string>tests.php</string>
+  <key>uuid</key>
+  <string>72174d10-bb12-11e0-962b-112233445566</string>
+</dict>
+</plist>

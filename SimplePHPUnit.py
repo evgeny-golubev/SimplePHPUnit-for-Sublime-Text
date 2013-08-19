@@ -4,11 +4,25 @@ import subprocess
 import sublime
 import sublime_plugin
 
+class ShowInPanel:
+    def __init__(self, window):
+        self.window = window
+        settings = sublime.load_settings('SimplePHPUnit.sublime-settings')
+        self.syntax = settings.get('syntax')
+        self.theme = settings.get('theme')
+
+    def display_results(self):
+        self.panel = self.window.get_output_panel("exec")
+        self.window.run_command("show_panel", {"panel": "output.exec"})
+        self.panel.settings().set("color_scheme", self.theme)
+        self.panel.set_syntax_file(self.syntax)
+        self.panel.settings().set("color_scheme", self.theme)
+
 class SimplePhpUnitCommand(sublime_plugin.WindowCommand):
     def __init__(self, *args, **kwargs):
         super(SimplePhpUnitCommand, self).__init__(*args, **kwargs)
         settings = sublime.load_settings('SimplePHPUnit.sublime-settings')
-        self.phpunit_path = settings.get('phpunit_path', 'phpunit')
+        self.phpunit_path = settings.get('phpunit_path')
 
     def run(self, *args, **kwargs):
         try:
@@ -16,7 +30,7 @@ class SimplePhpUnitCommand(sublime_plugin.WindowCommand):
             self.PROJECT_PATH = self.window.folders()[0]
             if os.path.isfile("%s" % os.path.join(self.PROJECT_PATH, 'phpunit.xml')) or os.path.isfile("%s" % os.path.join(self.PROJECT_PATH, 'phpunit.xml.dist')):
                 self.params = kwargs.get('params', False)
-                self.args = [self.phpunit_path]
+                self.args = [self.phpunit_path, '--stderr']
                 if self.params is True:
                     self.window.show_input_panel('Params:', '', self.on_params, None, None)
                 else:
@@ -35,9 +49,22 @@ class SimplePhpUnitCommand(sublime_plugin.WindowCommand):
         if os.name != 'posix':
             self.args = subprocess.list2cmdline(self.args)
         try:
-            self.window.run_command("exec", {
-                "cmd": self.args,
-                "shell": False,
-                "working_dir": self.PROJECT_PATH})
+            self.run_shell_command(self.args, self.PROJECT_PATH)
         except IOError:
             sublime.status_message('IOError - command aborted')
+
+    def run_shell_command(self, command, working_dir):
+            self.window.run_command("exec", {
+                "cmd": command,
+                "shell": False,
+                "working_dir": working_dir
+            })
+            self.display_results()
+            return True
+
+    def display_results(self):
+        display = ShowInPanel(self.window)
+        display.display_results()
+
+    def window(self):
+        return self.view.window()
