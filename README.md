@@ -3,19 +3,25 @@ Simple PHPUnit commands
 
 This plugin allows you the run the PHPUnit tests using the Sublime Text interface, without having to open and use the command line.
 
-Options Available:
+### Available commands:
 
-- PHPUnit
-	- `PHPUnit: Run`
-	- `PHPUnit: Run with params`
+- `PHPUnit: Run`
+- `PHPUnit: Run with params`
 
-INSTALLATION
-Use Package Controller or create a the directory SimplePHPUnit in your Sublime Text Packages directory, and you're ready to go.
+### Coloring output
 
-USAGE
-Press Cmd + Shift + P for the dropdown command list, search for PHPUnit, and pick your command.
+![Coloring output](https://raw.github.com/m0nah/SimplePHPUnit-for-Sublime-Text/master/Screen%20Shot.png)
 
-NOTE: phpunit needs to been work correct in the root folder of your structure in the sidebar.
+### Installation:
+Use Package Controller or create a the directory `SimplePHPUnit` in your Sublime Text Packages directory, and you're ready to go.
+
+### Usage:
+Press Cmd + Shift + P for the dropdown command list, search for `PHPUnit: `, and pick your command. Also you can use `Tools/PHPUnit...` menu item
+
+### Notes:
+- PHPUnit config file needs to been in the root folder of your structure in the sidebar.
+- You need insert in Sublime Text user settings `"show_panel_on_build": true` or use `Tools/Build Results/Show Build Results` menu item for view results.
 
 Give some feedback.
+
 Thanks.
