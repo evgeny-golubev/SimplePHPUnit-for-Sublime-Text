@@ -16,7 +16,6 @@ class ShowInPanel:
         self.window.run_command("show_panel", {"panel": "output.exec"})
         self.panel.settings().set("color_scheme", self.theme)
         self.panel.set_syntax_file(self.syntax)
-        self.panel.settings().set("color_scheme", self.theme)
 
 class SimplePhpUnitCommand(sublime_plugin.WindowCommand):
     def __init__(self, *args, **kwargs):
