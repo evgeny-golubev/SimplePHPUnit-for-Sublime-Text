@@ -1,5 +1,5 @@
 {
 	"phpunit_path": "vendor/bin/phpunit",
-	"theme": "Packages/SimplePhpUnit/SimplePhpUnit.hidden-tmTheme",
+	"theme": "Packages/SimplePhpUnit/SimplePhpUnit.tmTheme",
 	"syntax": "Packages/SimplePhpUnit/SimplePhpUnit.tmLanguage"
 }
