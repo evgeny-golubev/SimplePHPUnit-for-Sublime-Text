@@ -1,4 +1,4 @@
 {
-  "syntax": "Packages/SimplePHPUnit/SimplePhpUnit.tmLanguage",
-  "color_scheme": "Packages/SimplePHPUnit/SimplePhpUnit.hidden-tmTheme"
+  "syntax": "Packages/SimplePHPUnit/SimplePHPUnit.hidden-tmLanguage",
+  "color_scheme": "Packages/SimplePHPUnit/SimplePHPUnit.hidden-tmTheme"
 }

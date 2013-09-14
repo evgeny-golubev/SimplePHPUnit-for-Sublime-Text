@@ -1,21 +1,26 @@
 import os
+import sys
 import shlex
 import subprocess
 import sublime
 import sublime_plugin
 
+if sys.version_info < (3, 3):
+    raise RuntimeError('SimplePHPUnit works with Sublime Text 3 only')
+
+SPU_THEME = 'Packages/SimplePHPUnit/SimplePHPUnit.hidden-tmTheme'
+SPU_SYNTAX = 'Packages/SimplePHPUnit/SimplePHPUnit.hidden-tmLanguage'
+
 class ShowInPanel:
     def __init__(self, window):
         self.window = window
-        settings = sublime.load_settings('SimplePHPUnit.sublime-settings')
-        self.syntax = settings.get('syntax')
-        self.theme = settings.get('theme')
 
     def display_results(self):
         self.panel = self.window.get_output_panel("exec")
         self.window.run_command("show_panel", {"panel": "output.exec"})
-        self.panel.settings().set("color_scheme", self.theme)
-        self.panel.set_syntax_file(self.syntax)
+
+        self.panel.settings().set("color_scheme", SPU_THEME)
+        self.panel.set_syntax_file(SPU_SYNTAX)
 
 class SimplePhpUnitCommand(sublime_plugin.WindowCommand):
     def __init__(self, *args, **kwargs):
