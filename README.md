@@ -32,6 +32,11 @@ Example:
 - PHPUnit config file needs to been in the root folder of your structure in the sidebar.
 - You need insert in Sublime Text user settings `"show_panel_on_build": true` or use `Tools/Build Results/Show Build Results` menu item for view results.
 
+### Donate:
+If you liked this plugin, you can donate to support it!
+
+[![Paypal donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SZ6YWJUGFM9J8)
+
 Give some feedback.
 
 Thanks.
