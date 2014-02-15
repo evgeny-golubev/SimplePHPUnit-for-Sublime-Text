@@ -60,7 +60,7 @@ class SimplePhpUnitCommand(sublime_plugin.WindowCommand):
     def run_shell_command(self, command, working_dir):
             self.window.run_command("exec", {
                 "cmd": command,
-                "shell": False,
+                "shell": os.name == 'nt',
                 "working_dir": working_dir
             })
             self.display_results()
